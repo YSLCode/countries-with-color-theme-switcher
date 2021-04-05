@@ -1,18 +1,26 @@
-let req = new XMLHttpRequest();
-req.open(
-    "GET",
-    "https://restcountries.eu/rest/v2/all?fields=name;capital;population;borders;flag;"
-);
+// let req = new XMLHttpRequest();
+// req.open(
+//   "GET",
+//   "https://restcountries.eu/rest/v2/all?fields=name;capital;population;borders;flag;"
+// );
 
-let template = `<div class="country">`;
 
-req.onload = function() {
-    console.log(this.response);
-    let countries = JSON.parse(this.response);
-    let content = "";
-    for (let i = 0; countries[i]; i++) {
-        content += template + countries[i].capital + "</div> \n";
-    }
-    document.getElementById("app").innerHTML = content;
-};
-req.send();
+let content = "";
+
+let req = fetch(
+  "https://restcountries.eu/rest/v2/all?fields=name;capital;population;borders;flag;region;"
+)
+  .then((response) => (response.status == 200 ? response.json() : "error"))
+  .then((data) => {
+    for (let i = 0; data[i]; i++) {
+        content += `<div class="country">
+                        <img src="${data[i].flag}" >
+        <span class="country-name">` + data[i].name + "</span></div> \n";
+      }
+
+      document.getElementById("body-content").innerHTML = content
+  })
+
+console.log("Sync");
+
+
