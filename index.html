@@ -6,24 +6,45 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./styles/style.css">
+  <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <title>Document</title>
 </head>
 
 <body>
+
   <div class="app" id="app">
+
     <header>
       <span class="header-title">Where in the world?</span>
+      <i class="fa fa-moon" style="position: relative; left: 530px;"></i>
       <button class="dark-light-mode">Dark Mode</button>
     </header>
+
     <section class="body">
       <div class="body-search">
-      <input type="search" name="search" id="search">
-      <div class="dropdown"></div>
+        
+        <i class="fa fa-search"></i>
+        <input type="search" name="search" id="search" placeholder="Search for a country ...">
+
+        <div class="dropdown"> 
+          <span>Filter by region <i class="fa fa-chevron-down" style="justify-content: flex-end; margin-left: 80px;"></i></span>
+          <ul class="dropdown-list">
+            <li class="dropdown-list-item">Africa</li>
+            <li class="dropdown-list-item">America</li>
+            <li class="dropdown-list-item">Asia</li>
+            <li class="dropdown-list-item">Europe</li>
+            <li class="dropdown-list-item">Oceania</li>
+          </ul>
+          </div> 
     </div>
+
     <div class="body-content" id="body-content"></div>
+
     </section>
   </div>
+
   <script src="./js/index.js"></script>
+
 </body>
 
 </html>
